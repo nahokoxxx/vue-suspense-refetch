@@ -12,16 +12,16 @@ function change() {
 <template>
   <h1>The Star Wars People</h1>
   <button @click="change">Change People</button>
-  <Suspense>
-    <template #default>
-      <div class="people">
-        <Person v-for="id in ids" :id="id" :key="id" />
-      </div>
-    </template>
-    <template #fallback>
-      <div class="loading">Loading...</div>
-    </template>
-  </Suspense>
+  <template v-for="id in ids">
+    <Suspense>
+      <template #default>
+        <Person :id="id" :key="id" />
+      </template>
+      <template #fallback>
+        <div class="loading">Loading...</div>
+      </template>
+    </Suspense>
+  </template>
 </template>
 
 <style scoped>
@@ -32,6 +32,6 @@ function change() {
 }
 
 .loading {
-  margin-top: 30px;
+  margin: 30px;
 }
 </style>
