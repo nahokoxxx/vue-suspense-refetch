@@ -15,7 +15,7 @@ function change() {
   <Suspense>
     <template #default>
       <div class="people">
-        <Person v-for="id in ids" :id="id" />
+        <Person v-for="id in ids" :id="id" :key="id" />
       </div>
     </template>
     <template #fallback>
