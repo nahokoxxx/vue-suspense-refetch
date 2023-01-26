@@ -13,7 +13,7 @@ function change() {
   <h1>The Star Wars People</h1>
   <button @click="change">Change People</button>
   <template v-for="id in ids">
-    <Suspense>
+    <Suspense timeout="0">
       <template #default>
         <Person :id="id" :key="id" />
       </template>
